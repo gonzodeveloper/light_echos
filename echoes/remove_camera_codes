@@ -1,0 +1,10 @@
+#/bin/bash
+# Remove all camera code extensions from directories
+
+declare -a extensions=(".bd" ".be" ".bb")
+
+for ext in ${extensions[@]}; do
+	for dir in *$ext; do
+		mv -- "$dir" "$(basename -- $dir $ext)"
+	done
+done
